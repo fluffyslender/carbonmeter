@@ -1,0 +1,151 @@
+{
+  "version": "2026.10.1",
+  "updated": "2026-09-30",
+  "maintainer": "compliance owner",
+  "note": "Detection dictionary for EU environmental claims (ECGT / Directive (EU) 2024/825). Severity per the triage table in docs/claims-practice/01-scan-checklist.md. rewrite_ref points at a section of docs/claims-practice/02-rewrite-library.md. exclude_context suppresses a match where the surrounding text shows compliant usage - this is what keeps the false-positive rate usable.",
+  "severities": {
+    "P0": "Live neutrality or offsetting claim on a consumer-reachable page. 48 hours.",
+    "P1": "Generic environmental claim, self-made badge, unverified label. 2 weeks.",
+    "P2": "Unsubstantiated forward-looking claim. 30 days.",
+    "P3": "Archived, superseded or third-party-controlled. 60 days."
+  },
+  "rules": [
+    {
+      "id": "NEU-001", "severity": "P0", "category": "neutrality", "rewrite_ref": "1.1",
+      "label": "Carbon neutrality claim",
+      "pattern": "\\bcarbon[\\s\\-]?neutral(ity|ity)?\\b",
+      "basis": "ECGT Annex I: neutral/reduced/positive impact based on offsetting, blacklisted per se regardless of credit quality.",
+      "exclude_context": ["not carbon neutral", "never carbon neutral", "do not describe", "does not describe", "no longer describe", "cannot claim", "is not carbon neutral", "avoid the term", "banned", "prohibited", "blacklisted"]
+    },
+    {
+      "id": "NEU-002", "severity": "P0", "category": "neutrality", "rewrite_ref": "1.1",
+      "label": "Climate neutrality claim",
+      "pattern": "\\bclimate[\\s\\-]?neutral(ity)?\\b|\\bklimaneutral\\b|\\bneutro em carbono\\b|\\bneutre en carbone\\b|\\bneutro en carbono\\b|\\bCO2[\\s\\-]?neutral\\b|\\bCO₂[\\s\\-]?neutral\\b",
+      "basis": "Same prohibition, alternative wording and non-English equivalents.",
+      "exclude_context": ["not climate neutral", "do not describe", "does not describe", "cannot claim", "prohibited", "blacklisted"]
+    },
+    {
+      "id": "NEU-003", "severity": "P0", "category": "neutrality", "rewrite_ref": "1.2",
+      "label": "Net zero as achieved state",
+      "pattern": "\\b(we are|is|are now|already)\\s+net[\\s\\-]?zero\\b|\\bnet[\\s\\-]?zero (company|business|operations|delivery|shipping|product)\\b",
+      "basis": "Neutrality prohibition where based on offsetting; misleading where based on nothing.",
+      "exclude_context": ["not net zero", "have not reached", "do not claim", "by 20"]
+    },
+    {
+      "id": "NEU-004", "severity": "P0", "category": "neutrality", "rewrite_ref": "1.3",
+      "label": "Climate positive / carbon negative claim",
+      "pattern": "\\bclimate[\\s\\-]?positive\\b|\\bcarbon[\\s\\-]?negative\\b|\\bnet[\\s\\-]?positive\\b|\\bgive back more than\\b|\\bmore than we take\\b",
+      "basis": "Neutrality prohibition plus an effectively unevidenceable net-positive assertion.",
+      "exclude_context": ["do not claim", "no claim that", "cannot claim"]
+    },
+    {
+      "id": "NEU-005", "severity": "P0", "category": "neutrality", "rewrite_ref": "1.4",
+      "label": "Plastic / water neutrality claim",
+      "pattern": "\\bplastic[\\s\\-]?neutral\\b|\\bwater[\\s\\-]?neutral\\b|\\bplastic[\\s\\-]?positive\\b",
+      "basis": "Same structure as carbon neutrality: a neutrality claim achieved by third-party payment.",
+      "exclude_context": ["do not claim", "no claim that"]
+    },
+    {
+      "id": "OFF-001", "severity": "P0", "category": "offsetting", "rewrite_ref": "2.1",
+      "label": "Offsetting claim",
+      "pattern": "\\bwe offset\\b|\\boffsets? (our|all|your|the|100|every)\\b|\\bfully offset\\b|\\b100% offset\\b|\\boffset at checkout\\b|\\bcarbon offsett?ing\\b",
+      "basis": "Offsetting framing in support of an impact claim. Offering an offset purchase is not prohibited; describing the result as neutral or reduced is.",
+      "exclude_context": ["not offset", "does not offset", "do not offset", "make no claim", "no claim that", "without offsetting", "rather than offsetting", "instead of offsetting", "are not carbon credits"]
+    },
+    {
+      "id": "OFF-002", "severity": "P0", "category": "offsetting", "rewrite_ref": "2.2",
+      "label": "Compensation / balancing claim",
+      "pattern": "\\bcarbon compensat|\\bclimate compensat|\\bemissions? (are |is )?(compensated|balanced|neutralised|neutralized|cancelled|canceled)\\b|\\bwe compensate\\b",
+      "basis": "The neutrality prohibition in alternative wording. Not a safe synonym.",
+      "exclude_context": ["not compensated", "does not compensate", "do not compensate", "no claim"]
+    },
+    {
+      "id": "OFF-003", "severity": "P0", "category": "offsetting", "rewrite_ref": "2.3",
+      "label": "Carbon neutral shipping or delivery",
+      "pattern": "\\b(carbon|climate|CO2|CO₂)[\\s\\-]?neutral (shipping|delivery|deliveries|shipment|freight|transport)\\b|\\b(shipping|delivery) is (carbon|climate)[\\s\\-]?neutral\\b|\\bgreen (shipping|delivery)\\b",
+      "basis": "Service-level neutrality by offsetting. The most common live violation in EU ecommerce.",
+      "exclude_context": ["do not describe", "no longer"]
+    },
+    {
+      "id": "OFF-004", "severity": "P1", "category": "offsetting", "rewrite_ref": "2.4",
+      "label": "Tree planting as impact claim",
+      "pattern": "\\b(plant|plants|planting) a tree for every\\b|\\bone tree per\\b|\\btrees? planted for (each|every)\\b|\\bwe plant \\d+ trees?\\b",
+      "basis": "Implies offsetting and a permanence not evidenced. Trees planted is an input, not an outcome.",
+      "exclude_context": ["survival", "surveyed", "make no claim", "does not offset"]
+    },
+    {
+      "id": "GEN-001", "severity": "P1", "category": "generic", "rewrite_ref": "3.1",
+      "label": "Generic environmental claim: eco-friendly",
+      "pattern": "\\beco[\\s\\-]?friendly\\b|\\benvironmentally friendly\\b|\\bplanet[\\s\\-]?friendly\\b|\\bearth[\\s\\-]?friendly\\b|\\bkind to the planet\\b",
+      "basis": "ECGT: generic environmental claim without demonstrated recognised excellence.",
+      "exclude_context": ["avoid", "do not use", "prohibited", "banned", "instead of"]
+    },
+    {
+      "id": "GEN-002", "severity": "P1", "category": "generic", "rewrite_ref": "3.2",
+      "label": "Generic environmental claim: sustainable as merit",
+      "pattern": "\\b(our|the|a|truly|fully|100%) sustainable (product|products|choice|option|travel|shipping|delivery|fashion|packaging|hotel|stay|flight)\\b|\\bsustainably made\\b|\\bsustainable by design\\b",
+      "basis": "Generic claim when used as a claim of merit. Descriptive uses ('sustainability report', 'sustainability team') are not caught.",
+      "exclude_context": ["report", "team", "manager", "director", "regulation", "directive", "standard", "reporting"]
+    },
+    {
+      "id": "GEN-003", "severity": "P1", "category": "generic", "rewrite_ref": "3.3",
+      "label": "Generic environmental claim: regenerative / nature-positive",
+      "pattern": "\\bregenerative (travel|tourism|business|brand|programme|program|offsite)\\b|\\bnature[\\s\\-]?positive\\b|\\brestorative travel\\b",
+      "basis": "Generic claim. The word is a conclusion, not a mechanism.",
+      "exclude_context": ["agriculture", "farming", "grazing", "viticulture", "generic claim", "avoid"]
+    },
+    {
+      "id": "GEN-004", "severity": "P1", "category": "generic", "rewrite_ref": "3.4",
+      "label": "Generic environmental claim: vague virtue terms",
+      "pattern": "\\bzero impact\\b|\\bno impact on the (planet|environment)\\b|\\b(low|minimal)[\\s\\-]impact (travel|product|shipping|brand)\\b|\\bconscious (travel|brand|choice|collection)\\b|\\bmindful travel\\b",
+      "basis": "Generic claim. 'Zero impact' is additionally an absolute claim that is false on its face.",
+      "exclude_context": ["avoid", "do not use", "prohibited"]
+    },
+    {
+      "id": "GEN-005", "severity": "P1", "category": "generic", "rewrite_ref": "3.1",
+      "label": "Generic environmental claim: green as merit",
+      "pattern": "\\bgo(ing)? green\\b|\\bour green (credentials|commitment|promise|initiative|product|products)\\b|\\bgreen choice\\b",
+      "basis": "Generic environmental claim.",
+      "exclude_context": ["greenwashing", "green claims", "green transition", "green deal", "avoid"]
+    },
+    {
+      "id": "LBL-001", "severity": "P1", "category": "label", "rewrite_ref": "4.1",
+      "label": "Possible self-created sustainability label",
+      "pattern": "\\b(carbon|climate|eco|green|sustainability)[\\s\\-]?(verified|certified|approved|rated|badge|seal|mark)\\b",
+      "basis": "ECGT: displaying a sustainability label not based on a certification scheme or established by a public authority. Verify the scheme exists and the client is entitled to display it.",
+      "exclude_context": ["b corp", "iso 14", "ecovadis", "science based targets", "sbti", "cradle to cradle", "eu ecolabel", "blue angel", "nordic swan", "not certified", "prohibited"]
+    },
+    {
+      "id": "FWD-001", "severity": "P2", "category": "forward", "rewrite_ref": "5.1",
+      "label": "Forward-looking target, substantiation required",
+      "pattern": "\\b(net[\\s\\-]?zero|carbon[\\s\\-]?neutral|climate[\\s\\-]?neutral|zero emissions?)\\s+(by|in|before)\\s+20\\d{2}\\b|\\bby 20\\d{2} we will be (net[\\s\\-]?zero|carbon neutral)\\b",
+      "basis": "ECGT: unsubstantiated claims about future environmental performance. Check all five tests: base year and boundary, published milestone plan, allocated resource, annual progress reporting, third-party verification where feasible.",
+      "exclude_context": ["have not set", "no target", "science based targets initiative", "validated by"]
+    },
+    {
+      "id": "FWD-002", "severity": "P2", "category": "forward", "rewrite_ref": "5.2",
+      "label": "Vague commitment language",
+      "pattern": "\\bcommitted to (net[\\s\\-]?zero|carbon neutrality|climate neutrality)\\b|\\bon (a|our) (journey|path|road) to net[\\s\\-]?zero\\b|\\bworking towards carbon neutral\\b",
+      "basis": "Unsubstantiated future performance. Vaguer wording provides no additional protection.",
+      "exclude_context": ["have not set", "do not claim"]
+    },
+    {
+      "id": "CMP-001", "severity": "P1", "category": "comparative", "rewrite_ref": "7.1",
+      "label": "Comparative claim without stated basis",
+      "pattern": "\\b(greener|more sustainable|more eco|cleaner) than\\b|\\b\\d+% (more sustainable|greener|cleaner)\\b",
+      "basis": "Generic wording plus a comparison with no stated basis. Requires equivalent basis, same boundary, same method.",
+      "exclude_context": ["measured", "basis", "compared on"]
+    },
+    {
+      "id": "IMP-001", "severity": "P1", "category": "implied", "rewrite_ref": "6.1",
+      "label": "Undefined eco filter or product badge",
+      "pattern": "\\b(eco|green|sustainable)[\\s\\-]?(filter|badge|label|tag|pick|choice|selection|range|edit)\\b|\\bshop sustainable\\b|\\bsustainable choice\\b",
+      "basis": "A generic environmental claim expressed through UI with no defined criteria.",
+      "exclude_context": ["criteria", "defined as", "avoid"]
+    }
+  ],
+  "out_of_scope_flags": {
+    "note": "Detected and reported as observed-but-out-of-scope. Equally caught by ECGT but require materials and sector expertise. Refer to counsel; do not advise.",
+    "pattern": "\\bbiodegradable\\b|\\bcompostable\\b|\\bplastic[\\s\\-]?free\\b|\\b\\d+% recycled\\b|\\borganic\\b|\\bcruelty[\\s\\-]?free\\b|\\bvegan\\b|\\bfair[\\s\\-]?trade\\b|\\bethically sourced\\b"
+  }
+}
