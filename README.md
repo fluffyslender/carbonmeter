@@ -5,6 +5,8 @@ Boutique Scope 3 Category 6 (business travel) intelligence and destination impac
 ## Contents
 
 - **[docs/master-blueprint.md](docs/master-blueprint.md)** — the execution-ready master blueprint: positioning, EU regulatory strategy, delivery workflow, go-to-market playbook, financial model and 90-day plan.
+- **[docs/contracts/msa-template.md](docs/contracts/msa-template.md)** — Master Services Agreement template. **Draft pending legal review.** Annex A holds drafting notes and questions for counsel; delete it before sending to a client.
+- **[docs/contracts/sow-template.md](docs/contracts/sow-template.md)** — Statement of Work master form plus scope annexes for Tier 0, Tier 1, Tier 2 and Module A, and an internal assembly checklist.
 - **[docs/deliverables/claim-language-pack.md](docs/deliverables/claim-language-pack.md)** — client-ready template for Artefact F. Fill the `[[FIELD]]` placeholders per engagement (field list in the appendix). Parts 1–3 are the two-page operative version a client's marketing team can use unaided; Part 9 is the internal maintainer's annex.
 
 ## Three things to know before reading anything else
