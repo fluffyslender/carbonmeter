@@ -233,7 +233,7 @@ Turn this into a channel rather than accepting it as a limitation. The ROCs and 
 | **0** | **Offsite Impact Snapshot** | One event, ≤80 travellers, air + hotel + ground | €2,200 | 5 working days / 4h |
 | **1** | **Annual Category 6 Audit** | Full FY, all travel, VSME + ESRS E1-6 mapped, base year, recalculation policy, assurance-ready evidence binder | €7,500 | 3 weeks / 18h |
 | **2** | **Travel Impact Operating System** (retainer) | Quarterly refresh, offsite pre-mortems, travel policy, questionnaire response service, board pack | €1,600/mo | 6h/mo |
-| **A** | **Destination Impact Programme** | Partner diligence, programme design, claim framing, stewardship reporting | €3,000 + €500/mo | 14h + 2h/mo |
+| **A** | **Destination Impact Programme** | Partner diligence, programme design, claim framing, stewardship reporting | €4,000 + €500/mo | 14h + 2h/mo |
 | **B** | **SAF & In-Sector Intervention Advisory** | Procurement spec, counterparty diligence, chain-of-custody, claim wording | €2,500 | 10h |
 | **C** | **Assurance-Readiness Pack** | Evidence binder structured for a ROC/IASP limited-assurance engagement | €1,500 | 6h |
 
@@ -301,7 +301,7 @@ Factor-set integrity is a hard operational rule: **one factor tab per published 
 | **C** | **Evidence Binder** | Source exports, factor extracts, calculation workbook, audit log, kickoff minutes, reviewer sign-off | ROC / IASP |
 | **D** | **Reduction Levers Memo** | Modelled, quantified scenarios — not recommendations. See 3.3 | CFO, Head of Ops |
 | **E** | **Destination Impact Dossier** (Module A) | 2–3 vetted partners, diligence sheets, contribution structure, non-offset framing | People/Brand lead |
-| **F** | **Claim Language Pack** | Permitted/prohibited sentences for website, careers page, RFP answers, investor updates | Marketing, Comms |
+| **F** | **Claim Language Pack** | Permitted/prohibited sentences for website, careers page, RFP answers, investor updates. Template: [`docs/deliverables/claim-language-pack.md`](deliverables/claim-language-pack.md) | Marketing, Comms |
 | **G** | **Live Dashboard** | Looker Studio on the Sheets backend, client-branded, read-only link | Everyone; renewal driver |
 
 Artefacts B and C are what you are actually paid for and what nobody else at this price point produces. Artefact F is what the client *tells other people about*. Artefact G costs an hour and makes the retainer feel continuously alive rather than quarterly.
@@ -564,15 +564,15 @@ Marginal cash cost of delivery is effectively €0 — no licences, no data purc
 | Assurance-Readiness Pack | €1,500 | 6h | €250 |
 | SAF Advisory (Module B) | €2,500 | 10h | €250 |
 | Tier 2 Retainer | €1,600/mo | 6h | €267 |
-| Module A Impact Programme | €3,000 | 14h | €214 |
+| Module A Impact Programme | €4,000 | 14h | €286 |
 
 **Three findings that should change how you sell:**
 
 1. **The Snapshot is your most profitable product per hour, not your loss leader.** It is priced as a wedge but earns €550/hour once templated. Sell many more of them than instinct suggests, and resist the urge to bundle them away free.
-2. **Module A is your worst.** The diligence work is genuinely expensive and does not template well, because every destination is new. Either raise it to €4,000–4,500, or restrict it to the six destinations where your roster is already built and price new-destination diligence separately at cost. Do not let it become the product you are known for — it is the emotionally appealing part of the business and the economically weakest.
+2. **Module A is still your worst, and is priced accordingly.** The diligence work is genuinely expensive and does not template well, because every destination is new. **Repriced from €3,000 to €4,000** on this basis, which lifts it from €214 to €286/hour — mid-pack rather than last. Additionally: restrict it to the six destinations where the roster is already built, and quote new-destination diligence separately at cost. Do not let this become the product you are known for; it is the emotionally appealing part of the business and the economically weakest.
 3. **Retainer €/hour is mediocre but its value is not in the hourly rate.** It is recurring, it compounds referrals, it makes the annual audit trivial to deliver (data is already clean), and it is what makes the company sellable. Accept the lower rate deliberately.
 
-**Blended client value.** A full-stack client (Audit + Module A + 12-month retainer) = €7,500 + €3,000 + €19,200 = **€29,700 year one.** Realistically ~30% of audit clients take a retainer in year one, so model a blended ACV of **€11,000–13,000**.
+**Blended client value.** A full-stack client (Audit + Module A + 12-month retainer) = €7,500 + €4,000 + €19,200 = **€30,700 year one.** Realistically ~30% of audit clients take a retainer in year one, so model a blended ACV of **€11,000–13,000**.
 
 ### 5.5 Twelve-month model
 
@@ -584,18 +584,18 @@ Marginal cash cost of delivery is effectively €0 — no licences, no data purc
 | 3 | 1 Snapshot + 1 Audit deposit | €5,950 |
 | 4 | 1 Snapshot + Audit balance + Audit deposit | €9,700 |
 | 5 | 1 Audit + 1 Snapshot + Retainer #1 starts | €11,300 |
-| 6 | 1 Audit + Retainer + Module A | €12,100 |
+| 6 | 1 Audit + Retainer + Module A | €13,100 |
 | 7 | 1 Audit + 2 Retainers + 1 Snapshot | €12,900 |
 | 8 | 1 Audit + 2 Retainers | €10,700 |
-| 9 | 1 Audit + 3 Retainers + Module A | €15,300 |
+| 9 | 1 Audit + 3 Retainers + Module A | €16,300 |
 | 10 | 1 Audit + 3 Retainers + 1 Snapshot | €14,500 |
 | 11 | 1 Audit + 4 Retainers | €13,900 |
-| 12 | 1 Audit + 4 Retainers + Module A | €16,900 |
-| **Year 1** | 9 Audits, 6 Snapshots, 4 Retainers, 3 Module A | **≈€123,000** |
+| 12 | 1 Audit + 4 Retainers + Module A | €17,900 |
+| **Year 1** | 9 Audits, 6 Snapshots, 4 Retainers, 3 Module A | **≈€126,000** |
 
-Exit run rate ≈ €17k/month (≈ €200k annualised).
+Exit run rate ≈ €18k/month (≈ €215k annualised).
 
-**Conservative case (60% of base, ≈€74,000):** 5 Audits, 4 Snapshots, 2 Retainers. Founder-salary breakeven slips to month 8–9 but still arrives inside year one. **Plan operations on the conservative case and staff ambition on the base case** — the difference between them is roughly four closed deals, which is well within the noise of a first-year funnel.
+**Conservative case (60% of base, ≈€76,000):** 5 Audits, 4 Snapshots, 2 Retainers. Founder-salary breakeven slips to month 8–9 but still arrives inside year one. **Plan operations on the conservative case and staff ambition on the base case** — the difference between them is roughly four closed deals, which is well within the noise of a first-year funnel.
 
 **Cash timing note.** The 50% deposit structure means month 3 produces ~€6k of cash against ~€700 of cost. The business is cash-positive from its first signed engagement and never needs external capital at this scale. That is the entire reason to accept the manual-delivery constraint.
 
